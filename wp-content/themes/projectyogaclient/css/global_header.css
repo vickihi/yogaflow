@@ -1,0 +1,117 @@
+/* ====================================================== */
+/*                        HEADER                          */
+/* ====================================================== */
+header {
+    background-color: var(--yoga-bg-light); 
+    position: relative;
+    z-index: 100;
+}
+
+/* Logo */
+header .logo-holder img {
+    max-width: 120px; 
+}
+
+/* Book a Class Button */
+header .btn {
+    background-color: transparent;
+    border: 2px solid #a686bf;
+}
+
+header .btn:hover > a {
+    color: #fff !important;
+}
+
+/* Desktop menu display */
+.menu-holder .menu-list {
+    display: flex;      
+    gap: 40px;
+    align-items: center;  
+}
+
+.menu-holder .menu-list li {
+    list-style: none;
+}
+
+.menu-holder .menu-list a {
+    display: inline-block;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #4a3e52; 
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.menu-holder .menu-list a:hover {
+    color: var(--yoga-purple-dark); 
+    transform: translateY(-2px);
+}
+
+.menu-holder .menu-list .current-menu-item a {
+    color: var(--yoga-purple-dark);
+    font-weight: 700;
+}
+
+.mobile-menu-icon {
+    display: none; /* Hidden on desktop */
+    border: none;
+    padding: 10px 10px;
+}
+
+
+/* ============ */
+/*  RESPONSIVE  */
+/* ============ */
+@media (max-width: 991px) {
+    .menu-holder .menu-list {
+        display: none;   /* Hide by default on mobile */
+        position: absolute;
+        top: 100%;       /* Align with the bottom of the header */
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 20px 60px;
+        z-index: 999; 
+    }
+
+    .menu-holder .menu-item a {
+        display: block;
+        padding: 12px 0;
+    }
+
+    .mobile-menu-icon {
+        display: block;    /* Show hamburger icon */
+        font-size: 38px;
+        color: #4a3e52;
+        background: none;
+    }
+
+    .mobile-menu-icon .fa-xmark {
+        display: none;
+    }
+
+    /* Active: show menu on mobile */
+    .menu-holder.active .menu-list {
+        display: block;
+    }
+
+    /* Hamburger → X icon */
+    .mobile-menu-icon.active i.fa-bars {
+        display: none;
+    }
+
+    .mobile-menu-icon.active i.fa-xmark {
+        display: inline-block;
+    }
+
+    header .btn {
+        border: none !important;
+        padding: 0 !important;
+        background: none !important;
+    }
+
+    header .btn:hover a {
+        color: var(--yoga-text-dark) !important;
+    }
+}

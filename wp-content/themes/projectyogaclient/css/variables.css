@@ -1,0 +1,11 @@
+/* =========================== */
+/*   YOGA — THEME COLOR SET    */
+/* =========================== */
+:root {
+    --yoga-purple: #c7a7d9;       
+    --yoga-purple-dark: #a686bf;  /* hover */
+    --yoga-text-dark: #3d2b3d;    
+    --yoga-text-light: #6d5a6d;   
+    --yoga-bg-overlay: rgba(255, 255, 255, 0.12); /* overlay */
+    --yoga-bg-light: #e7dceb;
+}

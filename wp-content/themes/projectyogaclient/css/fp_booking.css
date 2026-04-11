@@ -1,0 +1,40 @@
+/* ====================================================== */
+/*               FRONT PAGE - BOOKING SECTION             */
+/* ====================================================== */
+.booking {
+    background-size: cover;
+    background-position: center;
+    background-color: var(--yoga-bg-overlay);  
+    background-blend-mode: lighten;            
+    text-align: center;
+    margin: 40px 0;
+}
+
+.booking-header {
+    margin-bottom: 100px;
+}
+
+.booking-card {
+    border-radius: 20px;
+    padding: 28px 32px;
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.booking-form .form-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.booking-form .form-control,
+.booking-form .form-select {
+    height: 46px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+}
+
+.booking-btn-row {
+    margin-top: 50px;
+}

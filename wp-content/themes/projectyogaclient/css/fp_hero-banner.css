@@ -1,0 +1,56 @@
+/* ====================================================== */
+/*                 FRONT PAGE - HERO BANNER               */
+/* ====================================================== */
+
+/* Hero banner */
+.hero-banner {
+    background-size: cover;
+    background-position: center;
+    background-color: var(--yoga-bg-overlay);
+    background-blend-mode: lighten;
+
+    min-height: 160vh;        
+    position: relative;
+    overflow: hidden;
+
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 85' preserveAspectRatio='none'%3E%3Cpath d='M0,0 H1440 V72 C1180,78 980,66 760,72 C520,78 300,84 0,72 Z' fill='white'/%3E%3C/svg%3E");
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: bottom;
+
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 85' preserveAspectRatio='none'%3E%3Cpath d='M0,0 H1440 V72 C1180,78 980,66 760,72 C520,78 300,84 0,72 Z' fill='white'/%3E%3C/svg%3E");
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    mask-position: bottom;
+}
+
+.hero-pretitle {
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.5s ease-out 0.2s both;
+}
+
+.hero-subtitle {
+    animation: fadeInUp 1.5s ease-out 0.4s both;
+    margin-bottom: 50px;
+}
+
+/* Simple fade-in animation for hero title */ 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+

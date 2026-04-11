@@ -1,0 +1,74 @@
+/* ========================================== */
+/*                CONTACT PAGE                */
+/* ========================================== */
+
+/* Message form */
+.message-form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.message-form h3 {
+    color: var(--yoga-text-dark);
+    margin-bottom: 40px;
+    font-size: 45px;
+}
+
+.form-group {
+    margin-bottom: 35px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--yoga-text-light);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.checkbox-wrapper {
+    margin-bottom: 35px;
+}
+
+.checkbox-wrapper .checkbox-label {
+    font-weight: 600;
+    color: var(--yoga-text-light);
+    font-size: 14px;
+}
+
+.checkbox-wrapper .checkbox-label input {
+    margin-right: 10px;
+}
+
+/* Contact right */
+.contact-info h3 {
+    color: var(--yoga-text-dark);
+    margin: 40px 0;
+    font-size: 45px;
+}
+
+.contact-info .info-item {
+    margin-bottom: 20px;
+}
+
+.contact-info i {
+    color: var(--yoga-text-dark);
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 550px;
+}

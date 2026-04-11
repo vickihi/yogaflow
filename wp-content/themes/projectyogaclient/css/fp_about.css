@@ -1,0 +1,19 @@
+/* ====================================================== */
+/*                FRONT PAGE - ABOUT SECTION              */
+/* ====================================================== */
+
+.about {
+    padding-top: 40px;
+    padding-bottom: 0;
+}
+
+.about .feature-icon {
+    font-size: 30px;
+    color: var(--yoga-purple-dark);
+}
+
+.about .feature-title {
+    font-size: 1.5rem;
+}
+
+

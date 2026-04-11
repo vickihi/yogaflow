@@ -1,0 +1,33 @@
+/* ====================================================== */
+/*                    ARCHIVE CLASS PAGE                  */
+/* ====================================================== */
+
+.archive-class-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 500px;
+    background-color: var(--yoga-bg-light);
+}
+
+.archive-class-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.archive-class-content .btn {
+    margin-top: auto;
+    align-self: center;
+}
+
+.archive-classes .class-meta {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+

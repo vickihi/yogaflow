@@ -1,0 +1,67 @@
+/* ====================================================== */
+/*                    ARCHIVE BLOG PAGE                   */
+/* ====================================================== */
+
+/* Make all cards in a row equal height */
+.archive-blog .row.g-4 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.archive-blog-card {
+    border-radius: 8px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-thumb {
+    border-radius: 8px 8px 0 0;
+}
+
+.archive-blog-content {
+    background-color: var(--yoga-bg-light); 
+    padding: 10px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Make content area fill remaining space */
+}
+
+.archive-blog-content .btn {   /* push button to bottom */
+    margin-top: auto;
+    align-self: center;
+}
+
+.archive-blog-content .meta-item a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* @media (max-width: 991px) {
+    .blog-card .img-holder {
+        height: 240px;
+    }
+
+    .blog-sidebar {
+        padding-left: 0;
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .blog-card h3 {
+        font-size: 1.4rem;
+    }
+} */

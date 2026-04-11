@@ -1,0 +1,102 @@
+/* =========================== */
+/*      SIDEBAR STYLES         */
+/* =========================== */
+
+.sidebar {
+    font-size: 0.95rem;
+}
+
+.sidebar-group {
+    background-color: var(--yoga-bg-light);
+    padding: 30px 25px;
+}
+
+.sidebar-heading {
+    font-size: 1.3rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+}
+
+.sidebar-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 10px;
+}
+
+.sidebar-thumb {
+    flex: 0 0 40%;
+}
+
+.sidebar-thumb img {
+    width: 100%;
+    height: auto;   
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+}
+
+.sidebar-info {
+    flex: 1;   
+}
+
+.sidebar-title {
+    font-size: 0.98rem;
+    line-height: 1.4;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+
+.sidebar-title a {
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar-title a:hover {
+    text-decoration: underline;
+}
+
+.sidebar-date {
+    font-size: 0.8rem;
+    color: #777;
+}
+
+.sidebar-categories {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-categories li {
+    margin-bottom: 10px;
+    font-size: 0.98rem;
+}
+
+.sidebar-categories a {
+    text-decoration: none; 
+    color: #555;
+}
+
+.sidebar-categories a:hover {
+    text-decoration: underline;
+}
+
+.archive-blog-sidebar {
+    padding: 30px 25px;
+    background-color: var(--yoga-bg-light); 
+}
+
+/* Current category highlight */
+.sidebar-categories .current-cat a {
+    background-color: var(--yoga-purple);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.sidebar-categories .current-cat a:hover {
+    background-color: var(--yoga-purple-dark);
+    text-decoration: none;
+}

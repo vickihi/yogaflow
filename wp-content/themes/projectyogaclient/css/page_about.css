@@ -1,0 +1,243 @@
+/* ========================================== */
+/*                ABOUT PAGE                  */
+/* ========================================== */
+
+/* ========== Intro section ========== */
+.intro {
+    background-color: var(--yoga-bg-light);
+    margin-top: -150px;
+    padding-top: 150px;
+}
+
+.intro h1 {
+    margin-bottom: 20px;
+}
+
+.intro p {
+    line-height: 1.8;
+}
+
+/* ========== Team section ========== */
+.instructors .row {
+    align-items: flex-start;  /* Disable default flex stretch so only the hovered card expands */
+}
+
+.instructors h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Instructor cards */
+.instructor-card {
+    border-radius: 8px;
+    position: relative;
+    background-color: var(--yoga-bg-light);
+    transition: transform 0.3s ease;
+}
+
+.instructor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Instructor content */
+.instructor-content {
+    padding: 30px 25px 0;
+}
+
+.instructor-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Instructor Classes */
+.instructor-classes {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.instructor-classes a {
+    text-decoration: none;
+    color: var(--yoga-text-dark);
+    font-size: 18px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.instructor-classes a:hover {
+    color: var(--yoga-purple-dark);
+    text-decoration: underline;
+}
+
+/* Instructor Social  */
+.instructor-social {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.instructor-social a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: var(--yoga-purple-dark);
+    border-radius: 50%;
+    margin: 0 0.25rem;
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.instructor-social a:hover {
+    background: #a38b7d;
+    transform: translateY(-2px);
+}
+
+/* Instructor short bio */
+.instructor_short_bio {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.instructor-card:hover .instructor_short_bio {
+    max-height: 200px;
+    opacity: 1;
+    padding-top: 10px;
+}
+
+
+/* ========== Mission section ========== */
+.mission {
+    width: 100%;
+    min-height: 420px; 
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat;     
+}
+
+
+.mission h1 {
+    margin-bottom: 20px;
+}
+
+.mission p {
+    line-height: 1.8;
+}
+
+
+/* ========== Blog section ========== */
+.yoga-class h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* ========== Unified Carousel Styling ========== */
+/* Combined styling for both yoga-class and instructors carousels */
+.yoga-class .slick-prev,
+.yoga-class .slick-next,
+.instructors .slick-prev,
+.instructors .slick-next {
+    width: 50px;
+    height: 50px;
+    background: var(--yoga-purple);
+    border-radius: 50%;
+    border: 2px solid #fff;
+    z-index: 10;
+    opacity: 0.9;
+}
+
+.yoga-class .slick-prev:hover,
+.yoga-class .slick-next:hover,
+.instructors .slick-prev:hover,
+.instructors .slick-next:hover {
+    background: var(--yoga-purple-dark);
+    opacity: 1;
+    box-shadow: 0 6px 20px rgba(198, 167, 217, 0.4);
+}
+
+.yoga-class .slick-prev::before,
+.yoga-class .slick-next::before,
+.instructors .slick-prev::before,
+.instructors .slick-next::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #fff;
+    font-size: 18px;
+    opacity: 1;
+}
+
+.yoga-class .slick-prev::before,
+.instructors .slick-prev::before {
+    content: "\f054";
+}
+
+.yoga-class .slick-next::before,
+.instructors .slick-next::before {
+    content: "\f054";
+}
+
+.yoga-class .slick-prev,
+.instructors .slick-prev {
+    right: calc(100% - 25px);
+    transform: scaleX(-1) translateY(-50%); 
+}
+
+.yoga-class .slick-next,
+.instructors .slick-next {
+    left: calc(100% - 25px);
+}
+
+.yoga-class .slick-dots,
+.instructors .slick-dots {
+    position: static;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 20px 0;
+}
+
+.yoga-class .slick-dots li button:before,
+.instructors .slick-dots li button:before {
+    content: none;
+}
+
+.yoga-class .slick-dots li button,
+.instructors .slick-dots li button {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(198, 167, 217, 0.3);
+    transition: all 0.3s ease;
+}
+
+.yoga-class .slick-dots li button:hover,
+.instructors .slick-dots li button:hover {
+    background: rgba(198, 167, 217, 0.6);
+    transform: scale(1.2);
+}
+
+.yoga-class .slick-dots li.slick-active button,
+.instructors .slick-dots li.slick-active button {
+    background: var(--yoga-purple);
+    border-color: var(--yoga-purple);
+    transform: scale(1.3);
+    box-shadow: 0 0 10px rgba(198, 167, 217, 0.5);
+}
+
+/* ========== Carousel Slide Structure ========== */
+.gallery-slide {
+    padding: 0 12px;
+    transition: transform 0.3s ease;
+}
+
+
+
+
+
+

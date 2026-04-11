@@ -1,0 +1,14 @@
+/* =================================================== */
+/*            FRONT PAGE - SUBSCRIBE SECTION           */
+/* =================================================== */
+
+.subscribe {
+  width: 100%;
+  min-height: 420px; 
+  background-repeat: no-repeat;       
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+

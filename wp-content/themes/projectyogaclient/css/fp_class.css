@@ -1,0 +1,58 @@
+/* ===================================================================== */
+/*              FRONT PAGE - CLASS CARD SECTION SPECIFIC STYLES          */
+/* ===================================================================== */
+.class {
+    margin-bottom: 40px;
+}
+
+/* Header */
+.class-header {
+    text-align: center;
+}
+
+.class-header .pretitle {
+    margin: 0 auto;
+}
+
+.class-header .title {
+    margin-bottom: 40px;
+}
+
+/* Class card with normal flow layout */
+.class-card {
+    border-radius: 8px;
+}
+
+.class-card:hover {
+    box-shadow: none;
+}
+
+.class-thumb {
+    border-radius: 8px 8px 0 0;
+}
+
+.yoga-class .class-meta {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.class-content {
+    background-color: var(--yoga-bg-light);
+    padding: 20px 20px 30px;
+    display: flex;       /* push button to bottom */
+    flex-direction: column;
+    border-radius: 0 0 8px 8px;
+}
+
+.class-content .btn {
+    margin-top: auto;    /* Push button to bottom */
+    align-self: center;
+}
+
+
+
+

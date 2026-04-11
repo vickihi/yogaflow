@@ -1,0 +1,18 @@
+/* ====================================================== */
+/*                    SINGLE BLOG PAGE                    */
+/* ====================================================== */
+
+/* ========== Post Content ========== */
+.single-blog-header {
+    padding-bottom: 20px;
+}
+
+.single-blog-body a {
+    color: var(--yoga-purple-dark);
+}
+
+.single-blog-body a:hover {
+    color: var(--yoga-text-dark);
+}
+
+

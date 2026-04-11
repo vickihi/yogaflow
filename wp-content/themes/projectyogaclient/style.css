@@ -1,0 +1,39 @@
+/*
+Theme Name: Yoga Flow Website
+Author: Weiwei
+Description:  A custom private WordPress theme for a modern, minimalist yoga website.
+Version: 1.0
+License: Private
+Tags: yoga, fitness, wellness, responsive
+*/
+
+/* ====================================================================== */
+/*              IMPORTING MODULAR CSS FILES FROM /css/ FOLDER            */
+/* ====================================================================== */
+
+/* Core Styles */
+@import url('css/variables.css');
+@import url('css/global.css');
+@import url('css/global_header.css');
+@import url('css/global_footer.css');
+@import url('css/global_sidebar.css');
+
+/* Front Page Sections (FP) */
+@import url('css/fp_hero-banner.css');
+@import url('css/fp_about.css');
+@import url('css/fp_booking.css');
+@import url('css/fp_class.css');
+@import url('css/fp_blog.css');
+@import url('css/fp_subscribe.css');
+
+/* Single Pages (SP) */
+@import url('css/sp_single-class.css');
+@import url('css/sp_single-blog.css');
+
+/* Archive Pages (AP) */
+@import url('css/ap_archive-blog.css');
+@import url('css/ap_archive-classes.css');
+
+/* Secondary Pages */
+@import url('css/page_about.css');
+@import url('css/page_contact.css');

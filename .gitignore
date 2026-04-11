@@ -1,0 +1,40 @@
+# WordPress sensitive files
+wp-config.php
+
+# WordPress uploads (optional - comment out if you want to include media)
+wp-content/uploads/
+
+# WordPress cache & generated files
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+
+# WordPress core (optional - include if you want to track core)
+# Uncomment below to exclude WordPress core files and only track your theme/plugins
+# /wp-admin/
+# /wp-includes/
+# /wp-*.php
+# /index.php
+# /xmlrpc.php
+# /license.txt
+# /readme.html
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node modules (if any)
+node_modules/
+
+# Log files
+*.log
+error_log
