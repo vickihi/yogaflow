@@ -11,15 +11,20 @@ wp-content/backup-db/
 wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
 
-# WordPress core (optional - include if you want to track core)
-# Uncomment below to exclude WordPress core files and only track your theme/plugins
-# /wp-admin/
-# /wp-includes/
-# /wp-*.php
-# /index.php
-# /xmlrpc.php
-# /license.txt
-# /readme.html
+# WordPress core
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/xmlrpc.php
+/license.txt
+/readme.html
+
+# Third-party plugins (install separately)
+/wp-content/plugins/
+
+# Simply Static export output
+/public_static/
 
 # OS files
 .DS_Store
