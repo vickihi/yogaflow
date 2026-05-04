@@ -8,7 +8,7 @@ Tags: yoga, fitness, wellness, responsive
 */
 
 /* ====================================================================== */
-/*              IMPORTING MODULAR CSS FILES FROM /css/ FOLDER            */
+/*              IMPORTING MODULAR CSS FILES FROM /css/ FOLDER             */
 /* ====================================================================== */
 
 /* Core Styles */
@@ -27,8 +27,8 @@ Tags: yoga, fitness, wellness, responsive
 @import url('css/fp_subscribe.css');
 
 /* Single Pages (SP) */
-@import url('css/sp_single-class.css');
 @import url('css/sp_single-blog.css');
+@import url('css/sp_single-class.css');
 
 /* Archive Pages (AP) */
 @import url('css/ap_archive-blog.css');

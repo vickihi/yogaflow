@@ -41,8 +41,8 @@
                     </h1>
 
                     <!-- Subtitle -->
-                    <p class="hero-subtitle">
-                        <?php the_field('section_banner_subtitle'); ?>
+                    <p class="hero-text">
+                        <?php the_field('section_banner_text'); ?>
                     </p>
 
                     <!-- Button -->
@@ -63,10 +63,15 @@
     <!-- ============================== About Section =============================== -->
     <section class="about">
         <div class="container">
-
             <div class="row g-5 align-items-center">
+                
+                <!-- Prepare data -->
+                <?php 
+                    $aboutimg  = get_field('section_about_image');   
+                    $features  = get_field('section_about_features');
+                ?>
 
-                <!-- Content: Left -->
+                <!-- Left: title, text, image mobile, features -->
                 <div class="col-lg-6">
 
                     <!-- Pretitle -->
@@ -79,26 +84,18 @@
                         <?php the_field('section_about_title'); ?>
                     </h2>
 
-                    <!-- Image: Mobile (bottom) --> 
-                    <div class="d-lg-none mb-4">
-                        <?php 
-                            $aboutimg = get_field('section_about_image'); 
-                        ?>
-                        <img src="<?php echo $aboutimg['url'] ?>" alt="<?php echo $aboutimg['alt'] ?>" class="img-fluid"> 
-                    </div>
-
                     <!-- Text -->
                     <p>
                         <?php the_field('section_about_text'); ?>
                     </p>
 
+                    <!-- Image: Mobile --> 
+                    <div class="d-lg-none mb-4">
+                        <img src="<?php echo $aboutimg['url'] ?>" alt="<?php echo $aboutimg['alt'] ?>" class="img-fluid"> 
+                    </div>
+
                     <!-- Section Features: icon + title + text -->
-                    <?php 
-                        $features = get_field('section_about_features'); 
-                    ?>
-
                     <div class="row">
-
                         <div class="col-6">
                             <div class="row g-4 align-items-center">
                                 <div class="col-auto">        <!-- Icon occupies minimal width -->
@@ -114,7 +111,6 @@
                                 <p><?php echo $features['feature_1_text']; ?></p>
                             </div>
                         </div>
-
                         <div class="col-6">
                             <div class="row g-4 align-items-center">
                                 <div class="col-auto">
@@ -128,7 +124,6 @@
                                 <p><?php echo $features['feature_2_text']; ?></p>
                             </div>
                         </div>
-
                         <div class="col-6">
                             <div class="row g-4 align-items-center">
                                 <div class="col-auto">
@@ -142,7 +137,6 @@
                                 <p><?php echo $features['feature_3_text']; ?></p>
                             </div>
                         </div>
-
                         <div class="col-6">
                             <div class="row g-4 align-items-center">
                                 <div class="col-auto">
@@ -156,12 +150,10 @@
                                 <p><?php echo $features['feature_4_text']; ?></p>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
 
-                <!-- Image: Desktop (right) -->
+                <!-- Right: image desktop -->
                 <div class="col-lg-6 d-none d-lg-block">
                     <img src="<?php echo $aboutimg['url'] ?>" alt="<?php echo $aboutimg['alt'] ?>" class="img-fluid">
                 </div>
@@ -178,15 +170,17 @@
 
             <div class="row g-5 align-items-center">
 
-                <!-- Image: Desktop (left) -->
+                <!-- Prepare data -->
+                <?php 
+                    $showcaseimg  = get_field('section_showcase_image');   
+                ?>
+
+                <!-- Left: image desktop -->
                 <div class="col-lg-6 d-none d-lg-block">
-                    <?php 
-                        $showcaseimg = get_field('section_showcase_image'); 
-                    ?>
                     <img src="<?php echo $showcaseimg['url'] ?>" alt="<?php echo $showcaseimg['alt'] ?>" class="img-fluid"> 
                 </div>
 
-                <!-- Content: Right -->
+                <!-- Right: title, text, button -->
                 <div class="col-lg-6">
                     <p class="pretitle showcase-pretitle">
                         <?php the_field('section_showcase_pretitle'); ?>
@@ -198,9 +192,6 @@
 
                     <!-- Image: Mobile (bottom) --> 
                     <div class="d-lg-none mb-4">
-                        <?php 
-                            $showcaseimg = get_field('section_showcase_image'); 
-                        ?>
                         <img src="<?php echo $showcaseimg['url'] ?>" alt="<?php echo $showcaseimg['alt'] ?>" class="img-fluid"> 
                     </div>
 
@@ -235,7 +226,7 @@
 
             <!-- Booking card -->
             <div class="booking-card">
-                <form class="booking-form" method="post" action="">
+                <form class="booking-form" method="post" action=""> <!-- TODO: Placeholder right now, requires booking plugin or custom API integration -->
 
                     <div class="row g-3 align-items-end">  <!-- Align at bottom -->
 
@@ -288,8 +279,9 @@
                             >
                                 <option value="" hidden selected>Select a class</option>
 
+                                <!-- Custom Query to get all 'class' posts as options -->
                                 <?php
-                                $classes = new WP_Query(               // Custom Query to get all 'class' posts
+                                $classes = new WP_Query(               
                                      array(
                                         'post_type'      => 'class',   
                                         'posts_per_page' => -1,        // Get all posts
@@ -307,7 +299,7 @@
                                     </option>
 
                                 <?php
-                                };
+                                }
                                 wp_reset_postdata();
                                 ?>
                             </select>
@@ -343,7 +335,7 @@
     </section>
 
 
-    <!-- ========================== Yoga-Classes Section ============================ -->
+    <!-- ========================== Classes Carousel Section ============================ -->
     <section class="yoga-class">
         <div class="container">
 
@@ -354,7 +346,7 @@
             </div>
 
             <div class="gallery-carousel">
-                <!-- Class cards -->
+
                 <?php
                 $classes = new WP_Query(
                     array(
@@ -368,72 +360,73 @@
                     $classes->the_post();
                 ?>
 
+                <!-- Class cards -->
                 <div class="gallery-slide">
-                        <article class="card class-card">
+                    <article class="card class-card">
 
-                            <!-- Thumbnail as bg img (top) -->
-                            <?php 
-                                $url = get_the_post_thumbnail_url(get_the_ID(), 'large');
-                            ?>
-                            <a href="<?php the_permalink(); ?>">                       
-                                <div class="card-thumb-bg class-thumb" style="background-image: url(<?php echo esc_url($url); ?>);"></div> 
-                            </a>
+                        <!-- Top: thumbnail as bg img -->
+                        <?php 
+                            $url = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                        ?>
+                        <a href="<?php the_permalink(); ?>">                       
+                            <div class="card-thumb-bg class-thumb" style="background-image: url(<?php echo esc_url($url); ?>);"></div> 
+                        </a>
 
-                            <!-- Content (bottom) -->
-                            <div class="class-content">
+                        <!-- Bottom: content -->
+                        <div class="class-content">
 
-                                <!-- Title -->
-                                <h3 class="card-title class-title">
-                                    <a href="<?php the_permalink(); ?>">
-                                        <?php the_title(); ?>
-                                    </a>
-                                </h3> 
+                            <!-- Title -->
+                            <h3 class="card-title class-title">
+                                <a href="<?php the_permalink(); ?>">
+                                    <?php the_title(); ?>
+                                </a>
+                            </h3> 
 
-                                <!-- Meta row (icon + text) -->
-                                <div class="class-meta">
+                            <!-- Meta row (icon + text) -->
+                            <div class="class-meta">
 
-                                    <!-- Level -->
-                                    <div class="meta-item">
-                                        <?php 
-                                            $levels = get_the_terms(get_the_ID(), 'class_level'); 
-                                        ?>
-                                        <i class="fa-solid fa-signal"></i>                                        
-                                        <span>
-                                            <?php echo esc_html($levels[0]->name) ?>
-                                        </span>
-                                    </div>
-
-                                    <!-- Type -->
-                                    <div class="meta-item">
-                                        <?php 
-                                            $levels = get_the_terms(get_the_ID(), 'class_type'); 
-                                        ?>
-                                        <i class="fa-solid fa-spa"></i>                                        
-                                        <span>
-                                            <?php echo esc_html($levels[0]->name) ?>
-                                        </span>
-                                    </div>
-
-                                    <!-- Duration -->
-                                    <div class="meta-item">
-                                        <i class="fa-solid fa-hourglass-half"></i>
-                                        <span><?php the_field('class_duration'); ?></span>
-                                    </div>
+                                <!-- Level -->
+                                <div class="meta-item">
+                                    <?php 
+                                        $levels = get_the_terms(get_the_ID(), 'class_level'); 
+                                    ?>
+                                    <i class="fa-solid fa-signal"></i>                                        
+                                    <span>
+                                        <?php echo esc_html($levels[0]->name) ?>
+                                    </span>
                                 </div>
 
-                                <!-- Brief description -->
-                                <p class="mb-3 class-excerpt">
-                                    <?php echo wp_trim_words(get_the_content(), 15, '...'); ?>
-                                </p>
+                                <!-- Type -->
+                                <div class="meta-item">
+                                    <?php 
+                                        $types = get_the_terms(get_the_ID(), 'class_type'); 
+                                    ?>
+                                    <i class="fa-solid fa-spa"></i>                                        
+                                    <span>
+                                        <?php echo esc_html($types[0]->name) ?>
+                                    </span>
+                                </div>
 
-                                <!-- Button -->
-                                <a href="<?php the_permalink(); ?>" class="btn">
-                                    Learn More
-                                </a>
-
+                                <!-- Duration -->
+                                <div class="meta-item">
+                                    <i class="fa-solid fa-hourglass-half"></i>
+                                    <span><?php the_field('class_duration'); ?></span>
+                                </div>
                             </div>
 
-                        </article>
+                            <!-- Brief description -->
+                            <p class="mb-3 class-excerpt">
+                                <?php echo wp_trim_words(get_the_content(), 15, '...'); ?>
+                            </p>
+
+                            <!-- Button -->
+                            <a href="<?php the_permalink(); ?>" class="btn">
+                                Learn More
+                            </a>
+
+                        </div>
+
+                    </article>
                 </div>
 
                 <?php 
@@ -446,49 +439,45 @@
     </section>
 
 
-    <!-- ============================ Subscrbe Section ============================== -->
+    <!-- ============================ Subscribe Section ============================== -->
     <section 
         class="subscribe"
         style="background-image: url(<?php the_field('section_subscribe_image'); ?>);"
     >
         <div class="container">
             <div class="row justify-content-lg-end justify-content-md-center align-items-center">
+                <div class="subscribe-content col-lg-6 col-md-7">
 
-            <div class="subscribe-content col-lg-6 col-md-7">
-
-                <!-- Header -->
-                <div class="subscribe-header">
-                    <p class="pretitle subscribe-pretitle">
-                        <?php the_field('section_subscribe_pretitle'); ?>
-                    </p>
-                    <h2 class="title subscribe-title">
-                        <?php the_field('section_subscribe_title'); ?>
-                    </h2>
-                </div>
-
-                <!-- Text -->
-                <p class="subscribe-text">
-                    <?php the_field('section_subscribe_text'); ?>
-                </p>
-
-                <!-- Form -->
-                <form class="subscribe-form">
-                    <div class="input-group">    <!-- BS component for input with addon -->
-                        <span class="input-group-text">Email</span>
-                        <input
-                        type="email"
-                        class="form-control"
-                        placeholder="Your Email"
-                        required
-                        >
-                        <button type="submit" class="btn btn-subscribe">Subscribe</button>                                                      
+                    <!-- Header -->
+                    <div class="subscribe-header">
+                        <p class="pretitle subscribe-pretitle">
+                            <?php the_field('section_subscribe_pretitle'); ?>
+                        </p>
+                        <h2 class="title subscribe-title">
+                            <?php the_field('section_subscribe_title'); ?>
+                        </h2>
                     </div>
-                </form>
 
+                    <!-- Text -->
+                    <p class="subscribe-text">
+                        <?php the_field('section_subscribe_text'); ?>
+                    </p>
 
-
-            </div>
-
+                    <!-- Form -->
+                    <form class="subscribe-form">    <!-- UI demo only, later will be replaced by mailchimp -->
+                        <div class="input-group">    <!-- BS component for input with addon -->
+                            <span class="input-group-text">Email</span>
+                            <input
+                            type="email"
+                            class="form-control"
+                            placeholder="Your Email"
+                            required
+                            >
+                            <button type="submit" class="btn btn-subscribe">Subscribe</button>                                                      
+                        </div>
+                    </form>
+                    
+                </div>
             </div>
         </div>
     </section>
@@ -550,12 +539,11 @@
                                 <!-- Excerpt -->
                                 <p class="blog-excerpt">
                                     <?php echo wp_trim_words(get_the_content(), 20, '...'); ?>
-
-                                    <!-- button -->
-                                    <a href="<?php the_permalink(); ?>" class="single-class-link">
-                                        Read More >>
-                                    </a>
                                 </p>
+
+                                <a href="<?php the_permalink(); ?>" class="single-class-link">
+                                    Read More >>
+                                </a>
 
                             </div>
                         </article>

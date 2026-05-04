@@ -36,7 +36,7 @@ Built from scratch using WordPress's theme and plugin APIs.
 |------|------|
 | Front Page | Homepage with 6 sections |
 | Single Pages | Single blog post, Single class |
-| Archive Pages | Blog archive (by category), Class archive (by type/level) |
+| Archive Pages | Blog archive (filter by category), Class archive (filter by type/level) |
 | Secondary Pages | About, Contact |
 | Global | Header, Footer, Sidebar |
 

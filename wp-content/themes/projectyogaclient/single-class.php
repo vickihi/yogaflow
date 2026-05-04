@@ -15,8 +15,8 @@ if ( have_posts() ) {
 
     <!-- =============================== Banner Section =============================== --> 
     <?php 
-    $banner = get_theme_mod('class_banner_image');
-    $subtitle = get_theme_mod('class_banner_subtitle');
+    $banner = get_theme_mod('single_class_banner_image');
+    $subtitle = get_theme_mod('single_class_banner_subtitle');
     ?>
 
     <section class="banner single-class-banner" style="background-image:url('<?php echo esc_url($banner); ?>')"> <!-- All single class pages use the same banner -->

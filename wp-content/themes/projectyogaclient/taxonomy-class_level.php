@@ -12,13 +12,8 @@
     <!--                  Fields Preparation                    -->  
     <!-- ====================================================== -->  
     <?php
-        $classes_page = get_page_by_path('classes-banner');  // self-definded page with slug 'classes-banner' to hold banner content
-
-        if ($classes_page) {
-            $banner_img   = get_the_post_thumbnail_url($classes_page->ID, 'full');    // Thumbnail as Banner background
-            $banner_title = get_the_title($classes_page);                             // Page title as Banner title
-            $banner_text  = apply_filters('the_content', $classes_page->post_content); // cannot use get_the_content() directly, need to apply filters      
-        }
+        $banner_img   = get_theme_mod('archive_class_banner_image');    
+        $banner_title = get_theme_mod('archive_class_banner_title');                               
     ?>
 
     <!-- ====================================================== --> 
@@ -26,10 +21,7 @@
     <!-- ====================================================== -->
     <section class="banner classes-banner" style="background-image: url(<?php echo esc_url($banner_img); ?>);">
         <div class="container">
-            <h1><?php echo esc_html($banner_title); ?></h1> 
-            <div class="banner-text">
-                <?php echo $banner_text; ?>
-            </div>     
+            <h1><?php echo esc_html($banner_title); ?></h1>     
         </div>
     </section>
 

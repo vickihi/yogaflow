@@ -1,17 +1,21 @@
 <?php 
 
-// ====================================================================== 
+// ============================================================================== 
 // Theme Assets Setup: Bootstrap, CSS, Font Awesome, Google Fonts  
-// ======================================================================
-
+// ==============================================================================
 function yoga_files() {
-
-    /* ================= CSS ================= */
 
     // Bootstrap CSS     
     wp_enqueue_style(             // wp_enqueue_style($handle, $src, $deps, $ver, $media);
         'bootstrap-css',
         'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'
+    );
+
+    // Main CSS (includes all modular styles via @import)
+    wp_enqueue_style(
+        'yoga-style',
+        get_stylesheet_uri(), 
+        ['bootstrap-css']
     );
 
     // Font Awesome
@@ -34,22 +38,13 @@ function yoga_files() {
         'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css'
     );
 
-
-    
-    /* ================= JS ================= */
-
     wp_enqueue_style(
         'slick-theme-css',
         'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css',
         ['slick-css']
     );
-
-    // Theme CSS (includes all modular styles via @import)
-    wp_enqueue_style(
-        'yoga-style',
-        get_stylesheet_uri()
-    );
-
+    
+    // jQuery 
     wp_enqueue_script('jquery');
 
     // Bootstrap JS
@@ -70,7 +65,7 @@ function yoga_files() {
         true
     );
 
-    // Slick init
+    // Slick init JS
     wp_enqueue_script(
         'slick-init',
         get_template_directory_uri() . '/assets/js/slick-init.js',
@@ -79,8 +74,7 @@ function yoga_files() {
         true
     );
 
-
-    // Mobile Menu
+    // Mobile Menu JS
     wp_enqueue_script(
         'menu',
         get_template_directory_uri() . '/assets/js/menu.js',
@@ -95,34 +89,35 @@ add_action('wp_enqueue_scripts', 'yoga_files');
 
 
 
-// ====================================================== 
-// Theme Setup: Menu + Logo + Featured Image 
-// ======================================================
-
+// ============================================================================== 
+// Theme Setup: Menu + Site Logo + Featured Image 
+// ==============================================================================
 function yoga_theme_setup() {
 
-    // Menu and Logo
-    add_theme_support('menus');            // Enable Appearance → Menus
-    add_theme_support('custom-logo');      // Enable Appearance → Customize → Site Identity → Logo
-
-    register_nav_menus([                   // Register menus - their locations
+    // Enable Appearance → Menus
+    add_theme_support('menus'); 
+    
+    // Register menus - their locations
+    register_nav_menus([                   
         'header-menu' => __('Header Navigation', 'projectyogaclient'),
         'footer-menu' => __('Footer Navigation', 'projectyogaclient'),
         'footer-link' => __('Footer Link', 'projectyogaclient'),
     ]);
 
-    // Featured Image
-    add_theme_support('post-thumbnails');  // Enable Featured Image option for Blog Posts and CPTs
+    // Enable Appearance → Customize → Site Identity → Logo
+    add_theme_support('custom-logo');      
 
+    // Enable Featured Image option for Blog Posts and CPTs
+    add_theme_support('post-thumbnails');  
 }
 
 add_action('after_setup_theme', 'yoga_theme_setup');
 
 
 
-// ====================================================== 
+// ============================================================================== 
 // Register CPT: Classes 
-// ======================================================
+// ==============================================================================
 function register_yoga_class_cpt() {
 
     $labels = [   // UI labels display in WP Dashboard
@@ -131,7 +126,6 @@ function register_yoga_class_cpt() {
         'singular_name'     => __('Class', 'projectyogaclient'),                    
         'menu_name'         => __('Classes', 'projectyogaclient'),           
         'name_admin_bar'    => __('Class', 'projectyogaclient'),            
-
         'add_new'           => __('Add New', 'projectyogaclient'),                   
         'add_new_item'      => __('Add new Class', 'projectyogaclient'),   
         'edit_item'         => __('Edit Class', 'projectyogaclient'),
@@ -148,7 +142,6 @@ function register_yoga_class_cpt() {
         'public'            => true,  // 'Classes' is shown in Dashboard and Appearance → Menus
         'show_in_rest'      => true,
         'supports'          => ['title', 'editor', 'thumbnail'],
-     
         'menu_icon'         => 'dashicons-universal-access-alt', 
         'menu_position'     => 5,
         "has_archive"       => true,
@@ -157,25 +150,29 @@ function register_yoga_class_cpt() {
 
     ];
 
-    register_post_type('class', $args);   //name of the table in db is 'class'
+    register_post_type('class', $args);   
 }
 
 add_action('init', 'register_yoga_class_cpt');
 
 
-// ====================================================== 
+
+// ==============================================================================
 // Register CPT: Team
-// ======================================================
-add_action('init', function() {
+// ==============================================================================
+function register_yoga_team_cpt() {
     $labels = [
 
-        'name'              => __('Team', 'projectyogaclient'),  //domain of the theme: name of the folder
+        'name'              => __('Team', 'projectyogaclient'),
         'singular_name'     => __('Instructor', 'projectyogaclient'),
         'menu_name'         => __('Team', 'projectyogaclient'),
         'name_admin_bar'    => __('Instructor', 'projectyogaclient'),
-        'add_new'           => __('Add New Member', 'projectyogaclient'),
-        'add_new_item'      => __('Add new Person', 'projectyogaclient'),
+        'add_new'           => __('Add New', 'projectyogaclient'),
+        'add_new_item'      => __('Add New Instructor', 'projectyogaclient'),
         'edit_item'         => __('Edit Instructor', 'projectyogaclient'),
+        'view_item'         => __('View Instructor', 'projectyogaclient'),
+        'search_items'      => __('Search Instructors', 'projectyogaclient'),
+        'all_items'         => __('All Instructors', 'projectyogaclient'),
 
     ];
 
@@ -186,23 +183,23 @@ add_action('init', function() {
         'public'            => true,
         'show_in_rest'      => true,
         'supports'          => ['title', 'editor', 'thumbnail'],
-
-        'menu_icon'         => 'dashicons-groups', 
+        'menu_icon'         => 'dashicons-groups',
         'menu_position'     => 6,
-        "has_archive"       => true,
+        'has_archive'       => true,
         'hierarchical'      => false
 
     ];
 
+    register_post_type('team', $args);
+}
 
-    register_post_type('team', $args);  
-});
+add_action('init', 'register_yoga_team_cpt');
 
 
 
-// ====================================================== 
-// Register Class Taxonomies (Class Type and Class Level)
-// ======================================================
+// ============================================================================== 
+// Register Taxonomies for CPT: Classes (Class Type and Class Level)
+// ==============================================================================
 function register_class_taxonomies() {
 
     // Class Type Taxonomy
@@ -240,62 +237,71 @@ add_action('init', 'register_class_taxonomies');
 
 
 
- 
 // ==============================================================================
-// WP Customize Section: Enable site admin to set Class Page global Settings - 
-//                       Banner Image, Banner Subtitle, Booking Page Link
+// WP Customizer: 
+// - Banner settings (banner image and banner title) for CPT pages (Class and Team)
+// - Global Class Booking Link
 // ==============================================================================
+function register_cpt_banner($wp_customize, $prefix, $label) {
 
-function yoga_customize_section($wp_customize) {
-
-    // Section setting 
-    $wp_customize->add_section('yoga_class_global_settings', array(
-        'title'    => __('Class Page Settings', 'yoga'),
-        'priority' => 30,
-    ));
-
-
-    // 1. Banner Image setting
-    $wp_customize->add_setting('class_banner_image', array(
+    // image
+    $wp_customize->add_setting("{$prefix}_banner_image", array(
         'default'           => '',
         'sanitize_callback' => 'esc_url_raw',
     ));
-
     $wp_customize->add_control(
-        new WP_Customize_Image_Control(   // Image Upload Control
+        new WP_Customize_Image_Control(
             $wp_customize,
-            'class_banner_image_control', array(
-                'label'    => __('Class Banner Image', 'yoga'),
-                'section'  => 'yoga_class_global_settings',
-                'settings' => 'class_banner_image'
+            "{$prefix}_banner_image_control", array(
+                'label'    => __("{$label} Banner Image", 'projectyogaclient'),
+                'section'  => 'yoga_cpt_settings',
+                'settings' => "{$prefix}_banner_image"
             )
         )
     );
 
-
-    // 2. Banner Subtitle setting
-    $wp_customize->add_setting('class_banner_subtitle', array(
+    // title
+    $wp_customize->add_setting("{$prefix}_banner_title", array(
         'default'           => '',
-        'sanitize_callback' => 'sanitize_textarea_field'
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+    $wp_customize->add_control("{$prefix}_banner_title_control", array(
+        'label'    => __("{$label} Banner Title", 'projectyogaclient'),
+        'section'  => 'yoga_cpt_settings',
+        'settings' => "{$prefix}_banner_title",
+        'type'     => 'text',
+    ));
+}
+
+function yoga_customize_section($wp_customize) {
+
+    // Generate a custom Section for CPT pages: Class and Team 
+    $wp_customize->add_section('yoga_cpt_settings', array(
+        'title'    => __('Yoga CPTs Settings', 'projectyogaclient'),
+        'priority' => 30,
     ));
 
-    $wp_customize->add_control('class_banner_subtitle_control', array(   // Textarea Control
-        'label'    => __('Class Banner Subtitle', 'yoga'),
-        'section'  => 'yoga_class_global_settings',
-        'settings' => 'class_banner_subtitle',
-        'type'     => 'textarea',
-    ));
+    // Archive class banner image & title
+    register_cpt_banner($wp_customize, 'archive_class', 'Class Archive');
 
+    // Single class banner image & title
+    register_cpt_banner($wp_customize, 'single_class', 'Single Class');
 
-    // 3. Booking Page Link setting 
+    // Archive team banner image & title
+    // register_cpt_banner($wp_customize, 'archive_team', 'Team Archive');
+
+    // Single team banner image & title
+    // register_cpt_banner($wp_customize, 'single_team', 'Single Archive');
+
+    // Booking Page Link setting 
     $wp_customize->add_setting('class_booking_page_link', array(
         'default'           => '',
         'sanitize_callback' => 'esc_url_raw',
     ));
 
     $wp_customize->add_control('class_booking_page_link_control', array(  // Text Control
-        'label'    => __('Booking Page URL', 'yoga'),
-        'section'  => 'yoga_class_global_settings',
+        'label'    => __('Booking Page URL', 'projectyogaclient'),
+        'section'  => 'yoga_cpt_settings',
         'settings' => 'class_booking_page_link',
         'type'     => 'text',    
     ));
