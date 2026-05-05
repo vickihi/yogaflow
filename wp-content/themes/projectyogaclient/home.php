@@ -16,9 +16,6 @@
   
         $banner_img_thumb = get_the_post_thumbnail_url($blog_page_id, 'full');  // Blog Page thumbnail as Banner background
         $banner_title = get_the_title($blog_page_id);                           // Blog Page title as Banner title
-        $banner_text = get_post_field('post_content', $blog_page_id);           // Blog Page content as Banner text. Cannot use get_the_content() directly, need to apply filters
-
-        $banner_img_acf = get_field('page_banner_image', $blog_page_id);        // General Page ACF img as Banner background
     ?>
 
 
@@ -28,9 +25,6 @@
     <section class="banner posts-banner" style="background-image: url(<?php echo esc_url($banner_img_thumb); ?>);">
         <div class="container">
             <h1><?php echo esc_html($banner_title); ?></h1> 
-            <div class="banner-text">
-                <?php echo $banner_text; ?>
-            </div>     
         </div>
     </section>
 

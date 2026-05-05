@@ -7,33 +7,32 @@
 
 
 <main>
-
     <!-- ====================================================== --> 
-    <!--                  Fields Preparation                    -->  
-    <!-- ====================================================== -->  
+    <!--                    Banner Section                      -->  
+    <!-- ====================================================== -->
+
+    <!-- Fields Preparation -->
     <?php
         $banner_img   = get_theme_mod('archive_class_banner_image');    
         $banner_title = get_theme_mod('archive_class_banner_title');                               
     ?>
 
-    <!-- ====================================================== --> 
-    <!--                    Banner Section                      -->  
-    <!-- ====================================================== -->
+    <!-- Banner Section -->
     <section class="banner classes-banner" style="background-image: url(<?php echo esc_url($banner_img); ?>);">
         <div class="container">
             <h1><?php echo esc_html($banner_title); ?></h1>     
         </div>
     </section>
 
+
     <!-- ====================================================== --> 
     <!--                    Classes Section                     -->  
     <!-- ====================================================== -->
     <section class="archive-classes">
         <div class="container">
-
             <div class="row g-5">
 
-                <!-- Main Content (Left) -->
+                <!-- Left: Main Content -->
                 <div class="col-lg-9">
                     <div class="row g-4">
 

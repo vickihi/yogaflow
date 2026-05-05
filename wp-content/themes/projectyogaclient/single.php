@@ -13,14 +13,11 @@ if ( have_posts() ) {
 
 <main>
     <!-- ====================== Banner Section ====================== -->
-    <?php $banner_url = wp_get_attachment_url(get_post_thumbnail_id($post->ID), 'thumbnail'); ?>
+    <?php $banner_url = get_the_post_thumbnail_url(get_the_ID(), 'large'); ?>
     
     <section class="banner single-blog-banner" style="background-image: url('<?php echo esc_url( $banner_url ); ?>');"> <!-- Each single blog page use a different thumbnail image banner -->
         <div class="container">
             <h1>Single Blog</h1>
-            <div class="banner-text">
-                <?php //echo $banner_text; ?>
-            </div> 
         </div>
     </section>
 
@@ -170,8 +167,8 @@ if ( have_posts() ) {
 </main>
 
 <?php
-    };
-};
+    }
+}
 ?>
 
 <?php get_footer(); ?>
